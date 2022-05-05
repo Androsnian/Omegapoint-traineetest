@@ -2,7 +2,7 @@ public class Number {
 
     private String idNumber;
     private boolean valid;
-    private boolean coOrdinationNumber;
+    private boolean coordinationNumber;
     private boolean organizationNumber;
     private boolean personalIdentityNumber;
 
@@ -23,8 +23,8 @@ public class Number {
     public void verifyNumber() {
         valid = true;
     }
-    public void verifyCoOrdinationNumber() {
-        coOrdinationNumber = true;
+    public void verifyCoordinationNumber() {
+        coordinationNumber = true;
     }
     public void verifyOrganizationNumber() {
         organizationNumber = true;
@@ -34,11 +34,11 @@ public class Number {
     }
 
     public String whatKindOfNumber() {
-        if(coOrdinationNumber) {
-            return " co-ordinationnumber.";
+        if(coordinationNumber) {
+            return " coordination number.";
         }
          else if(personalIdentityNumber) {
-            return " personal identitynumber.";
+            return " personal identity number.";
         }
         else if(organizationNumber) {
             return " organizationnumber.";
