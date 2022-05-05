@@ -20,9 +20,7 @@ public class Main {
     }
 
     private static void validityCheckPreparation (Number number, String id) {
-        // If number has - or + remove them
         id = id.trim().replace("-", "").replace("+", "");
-        // Remove century and check number
         if (id.length() == 12) {
             id = id.substring(2, 12);
         } else if (id.length() == 10) {
@@ -32,10 +30,8 @@ public class Main {
     }
     private static void validityCheck(Number number, String id){
         int result = 0;
-        // Retrieve/remove check number
         int checkNumber = Integer.parseInt(id.substring(9, 10));
         String idWithoutCheckNumber = id.substring(0, 9);
-        // Calculate check number
         for (int i = 0, len = idWithoutCheckNumber.length(); i < len; i++) {
             int tmp = Integer.parseInt(idWithoutCheckNumber.substring(i, i + 1));
 
@@ -52,10 +48,10 @@ public class Main {
         if(((checkNumber + result) % 10) == 0 ) {
             number.verifyNumber();
         }
-        if(Integer.parseInt(id.substring(2, 4), 10) < 13 && Integer.parseInt(id.substring(4, 6), 10) < 32) {
+        if(Integer.parseInt(id.substring(2, 4)) < 13 && Integer.parseInt(id.substring(4, 6)) < 32) {
             number.verifyPersonalIdentityNumber();
-        } else if(Integer.parseInt(id.substring(4, 6), 10) > 60) {
-            number.verifyCoOrdinationNumber();
+        } else if(Integer.parseInt(id.substring(4, 6)) > 60) {
+            number.verifyCoordinationNumber();
         } else {
             number.verifyOrganizationNumber();
         }
